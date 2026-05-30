@@ -15,13 +15,13 @@ export const grepSchema = Type.Object({
 	pattern: Type.String({ description: "Search pattern (regex or literal string)" }),
 	paths: Type.Optional(
 		Type.Array(Type.String(), {
-			description: "Directories or files to search (default: current directory). Each entry is passed as a separate ripgrep path argument.",
+			description: "Directories or files to search (default: current directory).",
 		}),
 	),
 	globs: Type.Optional(
 		Type.Array(Type.String(), {
 			description:
-				"File glob filters. Each entry is passed as a separate ripgrep --glob. Supports include patterns like '*.ts' and exclude patterns like '!*.test.ts'.",
+				"Filter files by glob patterns, e.g. '*.ts' or '**/*.spec.ts'",
 		}),
 	),
 	ignoreCase: Type.Optional(Type.Boolean({ description: "Case-insensitive search (default: false)" })),
@@ -501,9 +501,6 @@ export default function multiGlobGrepExtension(pi: ExtensionAPI) {
 		label: "grep",
 		description: `Search file contents for a pattern. Supports paths for one or more search targets and globs for one or more include/exclude patterns. Returns matching lines with file paths and line numbers. Respects .gitignore. Output is truncated to ${DEFAULT_LIMIT} matches or ${DEFAULT_MAX_BYTES / 1024}KB (whichever is hit first). Long lines are truncated to ${GREP_MAX_LINE_LENGTH} chars.`,
 		promptSnippet: "Search file contents for patterns (respects .gitignore; supports paths/globs filters)",
-		promptGuidelines: [
-			"Use grep with paths and globs when searches need multiple search targets or multiple include/exclude file patterns instead of falling back to bash/rg.",
-		],
 		parameters: grepSchema,
 		prepareArguments(args) {
 			return prepareGrepArguments(args) as MultiGlobGrepToolInput;
