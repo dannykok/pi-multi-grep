@@ -1,0 +1,51 @@
+{
+  "name": "pi-multi-grep",
+  "version": "1.0.0",
+  "description": "Pi extension that replaces the built-in grep tool with multi-path and multi-glob support.",
+  "author": {
+    "name": "Danny Kok",
+    "email": "dannykok1@gmail.com",
+    "url": "https://github.com/dannykok"
+  },
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "pi-package",
+    "pi-extension",
+    "grep",
+    "ripgrep",
+    "glob"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "pi": {
+    "extensions": [
+      "./src/index.ts"
+    ]
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-tui": "*",
+    "typebox": "*"
+  },
+  "devDependencies": {
+    "@earendil-works/pi-coding-agent": "latest",
+    "@earendil-works/pi-tui": "latest",
+    "@types/node": "latest",
+    "tsx": "latest",
+    "typebox": "latest",
+    "typescript": "latest"
+  },
+  "engines": {
+    "node": ">=22.19.0"
+  }
+}
