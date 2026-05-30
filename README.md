@@ -2,7 +2,7 @@
 
 After numerous times seeing agents being confused by bash-style `grep` tool syntax and struggle with the default Pi `grep` tool, I decided to create this extension.
 
-`pi-multi-grep` is a simple Pi extension that replaces the built-in `grep` tool with an array-first version for multiple search targets and multiple glob filters. It still uses `ripgrep` underneath.
+`pi-multi-grep` is a simple [Pi](https://github.com/earendil-works/pi) extension that replaces the built-in `grep` tool with an array-first version for multiple search targets and multiple glob filters. It still uses `ripgrep` underneath.
 
 So now agent:
 - stop being confused by the `grep` syntax
@@ -26,3 +26,7 @@ pi install npm:pi-multi-grep
 ```
 
 `paths` defaults to the current directory when omitted. `globs` is optional.
+
+## Attribution
+
+Built for a wonderful agentic coding harness [Pi](https://github.com/earendil-works/pi), created by Mario Zechner.
